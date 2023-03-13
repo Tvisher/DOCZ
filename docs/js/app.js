@@ -143,6 +143,26 @@ function trackMouse(hover, pointer) {
 }
 $(window).on('load', function () {
     trackMouse('.cursor', '.js-pointer');
-    // trackMouse('.comand-section__main-block__img', '.main-block__content_d');
+});
 
+
+$('.cursor-descr').mousemove(function (e) {
+    var X = e.pageX;
+    var Y = e.pageY;
+    var top = Y + 10 + 'px';
+    var left = X + 25 + 'px';
+    var id = $(this).data('tooltip');
+    $('#tip-' + id).css({
+        opacity: "1",
+        visibility: 'visible',
+        top: top,
+        left: left
+    });
+});
+$('.cursor-descr').mouseout(function () {
+    var id = $(this).data('tooltip');
+    $('#tip-' + id).css({
+        opacity: "0",
+        visibility: 'hidden',
+    });
 });
